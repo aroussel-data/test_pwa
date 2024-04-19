@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
-    <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="converter.css">
+    <!-- <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="converter.css"> -->
+    <link rel="canonical" href="https://aroussel-data.github.io/test_pwa/" />
+    <link rel="manifest" href="/test_pwa/manifest.json">
+    <link rel="stylesheet" href="/test_pwa/converter.css">
     <title>Temperature converter</title>
   </head>
   <body>
@@ -26,10 +29,10 @@
         </select>
         <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
       </form>
-      <script src="converter.js"></script>
+      <script src="/test_pwa/converter.js"></script>
       <script>
         if('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/sw.js', { scope: '/' });
+          navigator.serviceWorker.register('/test_pwa/sw.js', { scope: '/test_pwa/' });
         }
         </script>
   </body>
