@@ -36,3 +36,8 @@ html {
     font-size: 2rem;
     font-weight: bold;
   }
+
+  #converter #output-msrmt {
+    font-size: 2rem;
+    font-weight: bold;
+  }

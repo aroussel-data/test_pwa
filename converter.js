@@ -1,42 +1,25 @@
-const inputField = document.getElementById('input-temp');
-const fromUnitField = document.getElementById('input-unit');
+const inputRiseField = document.getElementById('input-rise');
+const inputRunField = document.getElementById('input-run');
 const toUnitField = document.getElementById('output-unit');
-const outputField = document.getElementById('output-temp');
+const outputMsrmtField = document.getElementById('output-msrmt');
 const form = document.getElementById('converter');
 
-function convertTemp(value, fromUnit, toUnit) {
-  if (fromUnit === 'c') {
-    if (toUnit === 'f') {
-      return value * 9 / 5 + 32;
-    } else if (toUnit === 'k') {
-      return value + 273.15;
+function convertSlope(rise, run, msrmt_unit) {
+  if (msrmt_unit === '0025') {
+      return (rise/run) * 100;
+    } else {
+      return 180 * Math.atan(rise/run) / Math.PI;
     }
-    return value;
-  }
-  if (fromUnit === 'f') {
-    if (toUnit === 'c') {
-      return (value - 32) * 5 / 9;
-    } else if (toUnit === 'k') {
-      return (value + 459.67) * 5 / 9;
-    }
-    return value;
-  }
-  if (fromUnit === 'k') {
-    if (toUnit === 'c') {
-      return value - 273.15;
-    } else if (toUnit === 'f') {
-      return value * 9 / 5 - 459.67;
-    }
-    return value;
-  }
-  throw new Error('Invalid unit');
 }
 
 form.addEventListener('input', () => {
-  const inputTemp = parseFloat(inputField.value);
-  const fromUnit = fromUnitField.value;
+  const inputRise = parseFloat(inputRiseField.value);
+  const inputRun = parseFloat(inputRunField.value);
   const toUnit = toUnitField.value;
 
-  const outputTemp = convertTemp(inputTemp, fromUnit, toUnit);
-  outputField.value = (Math.round(outputTemp * 100) / 100) + ' ' + toUnit.toUpperCase();
+  const outputMsrmt = convertSlope(inputRise, inputRun, toUnit);
+  if (isNaN(outputMsrmt)) {
+    throw new Error('Error during calculation');
+  }
+  outputMsrmtField.value = Math.round(outputMsrmt) + ' ' + String.fromCharCode(parseInt(toUnit, 16));
 });

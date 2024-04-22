@@ -3,31 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="shortcut icon" href="https://c.s-microsoft.com/favicon.ico?v2" />
-    <!-- <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="converter.css"> -->
+    <link rel="shortcut icon" href="/test_pwa/favicon.ico" />
     <link rel="canonical" href="https://aroussel-data.github.io/test_pwa/" />
     <link rel="manifest" href="/test_pwa/manifest.json">
     <link rel="stylesheet" href="/test_pwa/converter.css">
-    <title>Temperature converter</title>
+    <title>Slope calculator</title>
   </head>
   <body>
     <form id="converter">
-        <label for="input-temp">temperature</label>
-        <input type="text" id="input-temp" name="input-temp" value="20" />
-        <label for="input-unit">from</label>
-        <select id="input-unit" name="input-unit">
-          <option value="c" selected>Celsius</option>
-          <option value="f">Fahrenheit</option>
-          <option value="k">Kelvin</option>
-        </select>
-        <label for="output-unit">to</label>
+        <label for="input-rise">rise (m)</label>
+        <input type="text" id="input-rise" name="input-rise" value="1.5" />
+        <label for="input-run">run (m)</label>
+        <input type="text" id="input-run" name="input-run" value="2.0" />
+        <label for="output-unit">measurement</label>
         <select id="output-unit" name="output-unit">
-          <option value="c">Celsius</option>
-          <option value="f" selected>Fahrenheit</option>
-          <option value="k">Kelvin</option>
+          <option value="0025" selected>Percent</option>
+          <option value="00B0">Degrees</option>
         </select>
-        <output name="output-temp" id="output-temp" for="input-temp input-unit output-unit">68 F</output>
+        <output name="output-msrmt" id="output-msrmt" for="input-rise input-run output-msrmt">68%</output>
       </form>
       <script src="/test_pwa/converter.js"></script>
       <script>
