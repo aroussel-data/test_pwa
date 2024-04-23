@@ -3,15 +3,15 @@
     "name": "Slope calculator app",
     "short_name": "Slope calculator",
     "description": "A basic slope calculator application that can convert in Percent or Degrees",
-    "scope": "/",
-    "start_url": "/",
+    "scope": "/test_pwa/",
+    "start_url": "/test_pwa/",
     "background_color": "#2f3d58",
     "theme_color": "#2f3d58",
     "orientation": "any",
     "display": "standalone",
     "icons": [
         {
-            "src": "/icon512.png",
+            "src": "/test_pwa/icon512.png",
             "sizes": "512x512"
         }
     ]
